@@ -7,14 +7,19 @@ interface IUSerRequest {
   name: string;
   email: string;
   admin?: boolean;
+  password: string;
 }
 
 class CreateUserService {
-  async execute({ name, email, admin }: IUSerRequest): Promise<User> {
+  async execute({ name, email, admin, password }: IUSerRequest): Promise<User> {
     const usersRepository = getCustomRepository(UsersRepository);
 
     if (!email) {
       throw new Error("Email incorrect");
+    }
+
+    if (!password) {
+      throw new Error("Invalid password");
     }
 
     const userAlreadyExists = await usersRepository.findOne({
@@ -29,6 +34,7 @@ class CreateUserService {
       name,
       email,
       admin,
+      password,
     });
 
     await usersRepository.save(user);
