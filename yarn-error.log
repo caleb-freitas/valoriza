@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/share/yarn/bin/yarn.js add typeorm migration:create -n AlterUserAddPassword
+  /usr/local/bin/node /usr/share/yarn/bin/yarn.js add @types/classtransformer -D
 
 PATH: 
   /home/caleb/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -14,17 +14,17 @@ Platform:
   linux x64
 
 Trace: 
-  Error: migration:create: Invalid protocol: migration:
-      at Request.module.exports.Request.init (/usr/share/yarn/lib/cli.js:141152:31)
-      at new Request (/usr/share/yarn/lib/cli.js:140825:8)
-      at request (/usr/share/yarn/lib/cli.js:137731:10)
-      at RequestManager.execute (/usr/share/yarn/lib/cli.js:67081:15)
-      at RequestManager.shiftQueue (/usr/share/yarn/lib/cli.js:67119:10)
-      at /usr/share/yarn/lib/cli.js:66788:13
-      at new Promise (<anonymous>)
-      at new F (/usr/share/yarn/lib/cli.js:5301:28)
-      at RequestManager.request (/usr/share/yarn/lib/cli.js:66786:19)
-      at NpmRegistry.<anonymous> (/usr/share/yarn/lib/cli.js:31747:42)
+  Error: https://registry.yarnpkg.com/@types%2fclasstransformer: Not found
+      at Request.params.callback [as _callback] (/usr/share/yarn/lib/cli.js:67029:18)
+      at Request.self.callback (/usr/share/yarn/lib/cli.js:140883:22)
+      at Request.emit (events.js:400:28)
+      at Request.<anonymous> (/usr/share/yarn/lib/cli.js:141855:10)
+      at Request.emit (events.js:400:28)
+      at IncomingMessage.<anonymous> (/usr/share/yarn/lib/cli.js:141777:12)
+      at Object.onceWrapper (events.js:519:28)
+      at IncomingMessage.emit (events.js:412:35)
+      at endReadableNT (internal/streams/readable.js:1334:12)
+      at processTicksAndRejections (internal/process/task_queues.js:82:21)
 
 npm manifest: 
   {
@@ -39,6 +39,8 @@ npm manifest:
       "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
     },
     "devDependencies": {
+      "@types/bcryptjs": "^2.4.2",
+      "@types/email-validator": "^1.0.6",
       "@types/express": "^4.17.13",
       "@types/jsonwebtoken": "^8.5.8",
       "@types/uuid": "^8.3.4",
@@ -57,6 +59,9 @@ npm manifest:
       "typescript": "^4.5.5"
     },
     "dependencies": {
+      "bcryptjs": "^2.4.3",
+      "class-transformer": "^0.5.1",
+      "email-validator": "^2.0.4",
       "express": "^4.17.2",
       "express-async-errors": "^3.1.1",
       "jsonwebtoken": "^8.5.1",
@@ -151,6 +156,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@sqltools/formatter/-/formatter-1.2.3.tgz#1185726610acc37317ddab11c3c7f9066966bd20"
     integrity sha512-O3uyB/JbkAEMZaP3YqyHH7TMnex7tWyCbCI4EfJdOCoN6HIhqdJBWTM6aCCiWQ/5f5wxjgU735QAIpJbjDvmzg==
   
+  "@types/bcryptjs@^2.4.2":
+    version "2.4.2"
+    resolved "https://registry.yarnpkg.com/@types/bcryptjs/-/bcryptjs-2.4.2.tgz#e3530eac9dd136bfdfb0e43df2c4c5ce1f77dfae"
+    integrity sha512-LiMQ6EOPob/4yUL66SZzu6Yh77cbzJFYll+ZfaPiPPFswtIlA/Fs1MzdKYA7JApHU49zQTbJGX3PDmCpIdDBRQ==
+  
   "@types/body-parser@*":
     version "1.19.2"
     resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.19.2.tgz#aea2059e28b7658639081347ac4fab3de166e6f0"
@@ -165,6 +175,13 @@ Lockfile:
     integrity sha512-cdeYyv4KWoEgpBISTxWvqYsVy444DOqehiF3fM3ne10AmJ62RSyNkUnxMJXHQWRQQX2eR94m5y1IZyDwBjV9FQ==
     dependencies:
       "@types/node" "*"
+  
+  "@types/email-validator@^1.0.6":
+    version "1.0.6"
+    resolved "https://registry.yarnpkg.com/@types/email-validator/-/email-validator-1.0.6.tgz#d555e53c826ac75e0205305f33ff47fc46930cd3"
+    integrity sha512-6DAeWG+gKRlAWz7iczV8WPeD4KZzmevffrOW5c6WKqn8lvlWzOqGeKMcKZ0ggVvI2W4jNKdyEWBwuVfdD2haWg==
+    dependencies:
+      email-validator "*"
   
   "@types/express-serve-static-core@^4.17.18":
     version "4.17.28"
@@ -529,6 +546,11 @@ Lockfile:
     dependencies:
       tweetnacl "^0.14.3"
   
+  bcryptjs@^2.4.3:
+    version "2.4.3"
+    resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
+    integrity sha1-mrVie5PmBiH/fNrF2pczAn3x0Ms=
+  
   binary-extensions@^2.0.0:
     version "2.2.0"
     resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
@@ -649,6 +671,11 @@ Lockfile:
     version "1.1.4"
     resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.4.tgz#6fc9d7b42d32a583596337666e7d08084da2cc6b"
     integrity sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==
+  
+  class-transformer@^0.5.1:
+    version "0.5.1"
+    resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.5.1.tgz#24147d5dffd2a6cea930a3250a677addf96ab336"
+    integrity sha512-SQa1Ws6hUbfC98vKGxZH3KFY0Y1lm5Zm0SY8XX9zbK7FJCyVEac3ATW0RIpwzW+oOfmHE5PMPufDG9hCfoEOMw==
   
   cli-highlight@^2.1.11:
     version "2.1.11"
@@ -903,6 +930,11 @@ Lockfile:
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
     integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
+  
+  email-validator@*, email-validator@^2.0.4:
+    version "2.0.4"
+    resolved "https://registry.yarnpkg.com/email-validator/-/email-validator-2.0.4.tgz#b8dfaa5d0dae28f1b03c95881d904d4e40bfe7ed"
+    integrity sha512-gYCwo7kh5S3IDyZPLZf6hSS0MnZT8QmJFqYvbqlDZSbwdZlY6QZWxJ4i/6UhITOJ4XzyI647Bm2MXKCLqnJ4nQ==
   
   emoji-regex@^8.0.0:
     version "8.0.0"
